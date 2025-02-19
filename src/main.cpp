@@ -37,7 +37,7 @@ public:
         topic2_, default_qos, std::bind(&scanMerger::scan_callback2, this, std::placeholders::_1));
 
     point_cloud_pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>(cloudTopic_, rclcpp::SensorDataQoS());
-    RCLCPP_INFO(this->get_logger(), "Hello");
+    // RCLCPP_INFO(this->get_logger(), "Hello");
   }
 
 private:
