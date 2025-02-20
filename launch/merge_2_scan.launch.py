@@ -21,10 +21,16 @@ def generate_launch_description():
         launch_ros.actions.Node(
             package='ros2_laser_scan_merger',
             executable='ros2_laser_scan_merger',
+            name='ros2_laser_scan_merger',
+            namespace='scan_merger',
             parameters=[config],
             output='screen',
             respawn=True,
             respawn_delay=2,
+            remappings=[
+                # ('/scan_merger/cloud_in', '/scan'),
+                # ('/ros2_laser_scan_merger/scan', '/scan')
+            ]
         ),
         # TF2 for laser to map frame id, optional
         # launch_ros.actions.Node(
@@ -41,9 +47,12 @@ def generate_launch_description():
         # Call pointcloud_to_laserscan package
         launch_ros.actions.Node(
             name='pointcloud_to_laserscan',
+            namespace='scan_merger',
             package='pointcloud_to_laserscan',
             executable='pointcloud_to_laserscan_node',
-            parameters=[config]
+            parameters=[config],
+            remappings=[
+                ('/scan_merger/scan', '/scan'),
+            ]
         )
-        
     ])
