@@ -16,7 +16,7 @@
     laser1YOff: 0.0
     laser1ZOff: 0.4565
     
-    laser2Alpha: 0.0  #-65.0
+    laser2Alpha: 115.0  #-65.0
     laser2AngleMax: 0.0
     laser2AngleMin: 0.0
     laser2B: 255
@@ -58,7 +58,7 @@
     range_max: 10.0
     range_min: 0.15
     scan_time: 0.3333
-    target_frame: base_link
+    target_frame: front_lidar_link
     transform_tolerance: 0.01
     use_inf: true
     use_sim_time: false

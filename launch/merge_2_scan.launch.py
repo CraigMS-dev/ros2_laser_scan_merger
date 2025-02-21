@@ -14,7 +14,7 @@ def generate_launch_description():
     config = os.path.join(
         get_package_share_directory('ros2_laser_scan_merger'),
         'config',
-        'params.yaml'
+        'scan_merger_params.yaml'
     )
     return LaunchDescription([
         
